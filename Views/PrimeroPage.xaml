@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamenProgreso3_Disenio.Views.PrimeroPage"
+             Title="PrimeroPage"
+             BackgroundColor="White">
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+            <Label Text="Bienvenido"
+           FontFamily="arial"
+            FontAttributes="Bold"
+            FontSize="30"
+            TextColor="Black"
+           HorizontalOptions="Center"/>
+            <Button Text="Nueva Asignación"
+            BackgroundColor="DarkRed"
+            HorizontalOptions="Center"
+            Clicked="OnClickNuevaTarea"
+                    TextColor="White"/>
+            <Entry
+        Placeholder="Ingrese el nombre"
+           x:Name="nombre"
+           IsPassword="False"
+           Margin="0,0,0,10" 
+           TextColor="Black" />
+            <Entry
+        Placeholder="Ingrese el estado"
+        x:Name="estado"
+        IsPassword="False"
+        Margin="0,0,0,10" 
+        TextColor="Black" />
+            <Button Text="Buscar"
+    BackgroundColor="DarkRed"
+    HorizontalOptions="Center"
+                    Clicked="OnClickMostrarLista"
+                    TextColor="White"/>
+            <ListView x:Name="TareasList"
+          BackgroundColor="Wheat"
+          VerticalOptions="FillAndExpand"
+          RowHeight="70"
+                      IsVisible="true"
+                      ItemsSource="{Binding Tareas}">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout Spacing="20">
+                                <StackLayout Orientation="Vertical" Padding="1" Spacing="10" >
+                                    <Label Text="Nombre:" TextColor="DarkRed" />
+                                    <Label Text="{Binding Nombre}" TextColor="Black" />
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" Padding="1" Spacing="10">
+                                    <Label Text="Estado:" TextColor="DarkRed" />
+                                    <Label Text="{Binding Estado}" TextColor="Black" />
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical" Padding="1" Spacing="10">
+                                    <Label Text="Tarea: " TextColor="DarkRed" />
+                                    <Label Text="{Binding Descripcion}" TextColor="Black" />
+                                </StackLayout>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
